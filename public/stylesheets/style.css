@@ -1,0 +1,94 @@
+:root{
+  /*Cores icones*/
+  --IconVisualizacao: #1C85FF;
+  --Alternativa: #cfe2ff;
+}
+
+.navbar *, .navbar {
+  color: #EEE;
+}
+.nav-link:hover{
+  scale: 1.1;
+  color: #EEEEEE ;
+  transition: 500ms;
+}
+
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+main{
+  padding: 0 20px;
+}
+
+.table{
+  padding: 0 50px;
+}
+.tag , .link-tag{
+  color: var(--Alternativa);
+}
+
+a {
+  color: var(--Alternativa);
+  text-decoration: none;
+}
+
+.btn{
+  margin-left: 5px;
+}
+
+.col{
+  border: solid 1px lightgray;
+  border-radius: 2px;
+  padding: .4rem;
+}
+
+.erro{
+  border: none;
+
+}
+.erro h3  {
+  color: var(--Alternativa);
+  padding-top: 100px;
+}
+
+.erro p{
+  color: var(--Alternativa);
+}
+
+.header{
+  margin-bottom: 4rem; 
+}
+.header .navbar{
+  height: 80px;
+  background-color: var(--Alternativa);
+}
+
+.bi{
+  font-size: 18px;
+  color: var(--IconVisualizacao);
+}
+
+.bi-eye-fill{
+  color: var(--IconVisualizacao);
+
+}
+
+.bi-pencil-square{
+  color:var(--IconVisualizacao);
+}
+
+.bi-trash3-fill{
+  color: var(--IconVisualizacao);
+}
+
+.nav-item{
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+.crud-icon + .crud-icon{
+  margin-left: 12px;
+}
+

@@ -1,0 +1,45 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Criação de anotação</li>
+  </ol>
+</nav>
+<main>
+    <div class="container">
+        <h2>Cria  nota texto</h2>
+
+        <form method='POST' action='/nota/cria'>
+            <div class="row">
+                <div class="col-5">
+                    <label for="chave">Chave</label>
+                    <input class="form-control" placeholder="Digite a chave" type='text' name='chave'required
+                        size="30" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="titulo">Título</label>
+                    <input class="form-control" placeholder="Digite o titulo" type='text' name='titulo' required
+                        size="60" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <label for="importancia">Importância da nota</label>
+                    <input class="form-control" type="number" name="importancia" id="importancia" step="1" min="0"
+                        max="5" value="3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <label for="texto">Texto da Nota</label>
+                    <textarea class="form-control" placeholder="Digite o texto" rows="5" cols="57"
+                        name='texto'></textarea>
+                    <button type="submit" class="btn btn-primary">Criar</button><a href="/"><button class="btn btn-secondary" type="button">Cancelar</button></a>
+                </div> 
+            </div>
+            {{!-- <button onclick="window.location.href='/'">cancelar</button> --}}
+        </form>
+    </div>
+</main>

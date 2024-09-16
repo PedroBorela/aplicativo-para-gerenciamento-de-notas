@@ -1,0 +1,124 @@
+
+
+<main>
+  {{#if notas}}
+  <table class="table table-hover  text-center">
+    <thead class="table-primary">
+      <tr>
+        <th>
+          <strong>Chave</strong>
+        </th>
+        <th>
+          <strong>Título</strong>
+        </th>
+        <th>
+          <strong>Alterar status</strong>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each notas}}
+      {{! Lista de notas}}
+      <tr>
+        {{#if this.lida}}
+        <td>
+          {{this.chave}}
+        </td>
+        <td>
+          <a href="/nota/consulta/{{this.chave}}">{{this.titulo}}</a>
+          {{!-- <a role="button" class="crud-icon" href="deleta/{{this.chave}}" data-bs-toggle="modal"
+            data-bs-target="#ModalExclusao" data-bs-id={{this.chave}} data-bs-titulo="{{this.titulo}}">
+            <i class="bi bi-trash3-fill"></i>
+          </a> --}}
+        </td>
+        <td>
+          <a class="crud-icon" href="/nota/naolida/{{this.chave}}"><i class="bi bi-envelope-open"></i></a>
+        </td>
+        {{else}}
+
+
+        <td>
+          <b>{{this.chave}}</b>
+        </td>
+        <td>
+          <b><a href="/nota/consulta/{{this.chave}}"><b>{{this.titulo}}</a></b>
+          {{!-- <a role="button" class="crud-icon" href="deleta/{{this.chave}}" data-bs-toggle="modal"
+            data-bs-target="#ModalExclusao" data-bs-id={{this.chave}} data-bs-titulo="{{this.titulo}}">
+            <i class="bi bi-trash3-fill"></i>
+          </a> --}}
+        </td>
+        <td>
+          <a class="crud-icon" href="/nota/lida/{{this.chave}}"><i class="bi bi-envelope-fill"></i></a>
+        </td>
+        {{/if}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+
+  {{else}}
+  {{! Se não tiver nenhuma anotação, geral }}
+  <div style="text-align: center;">
+    <h3>Ainda não há nenhuma anotação cadastrada</h3>
+    <a href="/nota/cria">Crie sua primeira anotação</a>
+  </div>
+  {{/if}}
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offCanvasExemplo" aria-labelledby="offCanvasExemploLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtro de Notas</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <form action="/" method="POST">
+      <div class="offcanvas-body justify-content-center">
+        <div>
+          <h4>Estado da nota</h4>
+          <div class="form-check">
+            {{#if filtroLida}}
+                        <input class="form-check-input" type="checkbox" name="estado_lida" value="lida" id="lida" checked />
+                    {{else}}
+                        <input class="form-check-input" type="checkbox" name="estado_lida" value="lida" id="lida"/>
+                    {{/if}}
+            <label for="estado_lida" class="form-check-label">Lida</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="naolida"{{#if filtroNaoLida}}checked{{/if}} name="estado_nao_lida">
+            <label for="estado_nao_lida" class="form-check-label">Não lida</label>
+          </div>
+        </div>
+        <div>
+          <h4>Importância da nota</h4>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="i1" {{#if filtroI1}}checked{{/if}}>
+            <label for="i1" class="form-check-label">1</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="i2"{{#if filtroI2}}checked{{/if}}> 
+            <label for="i2" class="form-check-label">2</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="i3"{{#if filtroI3}}checked{{/if}}>
+            <label for="i3"
+              class="form-check-label">3</label>
+              </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="i4"{{#if filtroI4}}checked{{/if}}>
+            <label for="i4"
+              class="form-check-label">4</label>
+              </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="i5"{{#if filtroI5}}checked{{/if}}>
+            <label for="i5"
+              class="form-check-label">5
+              </label>
+              </div>
+        </div>
+      </div>
+
+      <button class="btn btn-success" type="submit" name="botao_filtro">Filtrar</button>
+    </form>
+  </div>
+
+</main>

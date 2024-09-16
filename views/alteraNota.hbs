@@ -1,0 +1,56 @@
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alteração de anotação</li>
+  </ol>
+</nav>
+
+
+<main>
+  <h2>Alteração de nota de texto</h2>
+  <form method="POST" action="/nota/altera/{{nota.chave}}">
+    <div class="row">
+      <div class="col-5">
+        <label class="form-label" for="chave">Chave</label>
+        <input class="form-control" type="text" name="chave" value="{{nota.chave}}" size="30" readonly />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <label class="form-label" for="titulo">Título</label>
+        <input class="form-control" type="text" name="titulo" value="{{nota.titulo}}" size="60" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <label class="form-label" for="importancia">Importância da nota</label>
+        <input class="form-control" type="number" name="importancia" value={{nota.importancia}} step="1" min="0" max="5">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <label class="form-label" for="texto">Texto da Nota</label>
+        <textarea class="form-control" rows="5" cols="57" name="texto">{{nota.texto}}</textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{#if nota.lida}}
+        <input type="checkbox" name="status" id="status" checked />
+        {{else}}
+        <input type="checkbox" name="status" id="status" />
+        {{/if}}
+        <label for="status">Nota Lida</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="submit" class="btn btn-success" >Alterar</button>
+        <a href="/nota/consulta/{{nota.chave}}"><button class="btn btn-secondary" type="button">Cancelar</button></a>
+      </div>
+    </div>
+  </form>
+
+  
+</main>

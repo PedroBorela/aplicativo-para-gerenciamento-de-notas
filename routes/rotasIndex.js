@@ -9,6 +9,6 @@ router.post('/', controllerIndex.pesquisa);
 // router.post('/', controllerIndex.filtro)
 
 
-
+router.get('/ajuda', controllerIndex.ajuda);
 
 module.exports = router;

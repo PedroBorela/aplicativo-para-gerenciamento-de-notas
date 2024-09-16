@@ -19,7 +19,13 @@ exports.sobre = async function (req, res) {
     res.render('sobre', contexto)
 }
 
-
+exports.ajuda = async function(req, res){
+    contexto = {
+    titulo_pagina: "Ajuda sobre o Aplicativo",
+    }
+    // renderiza o arquivo na dentro da pasta view
+    res.render('ajuda', contexto);
+    }
 
 exports.pesquisa = async function (req, res) {
     var filtro_pesquisa = req.body.search //RETORNA O VALOR DO CAMPO DE PESQUISAR NOTAS
